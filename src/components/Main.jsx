@@ -1,4 +1,4 @@
-import Carousel from 'mock/CarouselData';
+import Carousel from 'components/Carousel';
 
 export default function Main() {
   return (
@@ -13,6 +13,5 @@ export default function Main() {
         <Carousel />
       </div>
     </>
-
   );
 }
