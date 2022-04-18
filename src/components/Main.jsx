@@ -1,17 +1,31 @@
-import Carousel from 'components/Carousel';
+import { Box } from '@chakra-ui/react';
+import logo from 'Assets/logo.png';
+import NavigationPanel from 'layout/NavigationPanel';
+import { useState } from 'react';
+import Carousel from './Carousel';
+import Login from './Login';
 
 export default function Main() {
+  const [login, setlogin] = useState(true);
+
   return (
     <>
-      <div className="flex content-center">
-        <h1 className="flex-1 text-center">LATEST MODELS</h1>
-      </div>
-      <div className="flex content-center">
-        <h2 className="flex-1 text-center">LATEST MODELS</h2>
-      </div>
-      <div className="flex content-center">
-        <Carousel />
-      </div>
+      <Box className="flex">
+        <Box className="w-3/12 h-screen">
+          <img src={logo} className="w-40 pl-8" alt="logo" />
+          <NavigationPanel />
+        </Box>
+        {login ? (
+          <Box className="w-9/12 flex items-center h-screen">
+            <Carousel />
+          </Box>
+        )
+          : (
+            <Box className="w-9/12  h-screen">
+              <Login />
+            </Box>
+          )}
+      </Box>
     </>
   );
 }
