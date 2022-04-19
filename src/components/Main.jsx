@@ -1,13 +1,12 @@
 import { Box } from '@chakra-ui/react';
 import logo from 'Assets/logo.png';
 import NavigationPanel from 'layout/NavigationPanel';
-import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import Carousel from './Carousel';
 import Login from './Login';
 
 export default function Main() {
-  const [login, setlogin] = useState(true);
-
+  const login = useSelector((state) => state.AuthReducer);
   return (
     <>
       <Box className="flex">

@@ -1,24 +1,45 @@
-const CarouselData = [
+const cars = [
   {
-    image:
-      'https://images.unsplash.com/photo-1546768292-fb12f6c92568?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
+    imageUrl: 'https://www.tesla.com/assets/img/my_fb_s.jpg',
+    imageAlt: 'Tesla Model Y',
+    cargo: '76cu ft',
+    speed: '330 mi',
+    title: 'Tesla Model Y',
+    formattedPrice: '$57,940.00',
+    reviewCount: 12,
+    rating: 4,
   },
   {
-    image:
-      'https://images.unsplash.com/photo-1501446529957-6226bd447c46?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1489&q=80',
+    imageUrl: 'https://carwow-uk-wp-3.imgix.net/tesla-model-3-4.jpg',
+    imageAlt: 'Tesla Model 3',
+    cargo: '65cu ft',
+    speed: '334 mi',
+    title: 'Tesla Model 3',
+    formattedPrice: '$41,940.00',
+    reviewCount: 4,
+    rating: 4,
   },
   {
-    image:
-      'https://images.unsplash.com/photo-1483729558449-99ef09a8c325?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80',
+    imageUrl: 'https://tesla-cdn.thron.com/delivery/public/image/tesla/3863f3e5-546a-4b22-bcbc-1f8ee0479744/bvlatuR/std/1200x628/MX-Social',
+    imageAlt: 'Tesla Model X',
+    cargo: '69cu ft',
+    speed: '333 mi',
+    title: 'Tesla Model X',
+    formattedPrice: '$108,940.00',
+    reviewCount: 12,
+    rating: 4,
   },
   {
-    image:
-      'https://images.unsplash.com/photo-1475189778702-5ec9941484ae?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1351&q=80',
+    imageUrl: 'https://www.topgear.com/sites/default/files/2022/02/2-Tesla-Model-S.jpg',
+    imageAlt: 'Tesla Model S',
+    cargo: '76cu ft',
+    speed: '396 mi',
+    title: 'Tesla Model S',
+    formattedPrice: '$93,740.00',
+    reviewCount: 32,
+    rating: 4,
   },
-  {
-    image:
-      'https://images.unsplash.com/photo-1503177119275-0aa32b3a9368?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80',
-  },
+
 ];
 
-export default CarouselData;
+export default cars;
