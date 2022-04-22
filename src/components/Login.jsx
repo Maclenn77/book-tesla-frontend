@@ -2,6 +2,7 @@ import {
   Box,
   Button,
   Center,
+  Checkbox,
   Heading,
   Image,
   Input,
@@ -12,11 +13,11 @@ import {
 } from '@chakra-ui/react';
 import { ErrorMessage, Form, Formik } from 'formik';
 import logo from 'Assets/logo.png';
+import { loginSchema } from 'configs/formsSchemas';
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { doLogin } from 'redux/Auth';
-import { loginSchema } from 'configs/formsSchemas';
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -98,6 +99,15 @@ const Login = () => {
                   name="password"
                   component="div"
                 />
+              </Box>
+              <Box className="flex justify-between">
+                <Checkbox colorScheme="gray">Remeber Me</Checkbox>
+                <Text
+                  variant="p"
+                  className="text-dark-gray font-medium text-md"
+                >
+                  Forgot Password?
+                </Text>
               </Box>
               <Box className="flex justify-between pt-12">
                 <Button justifyContent="center" variant="outline" type="submit">
