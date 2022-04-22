@@ -1,5 +1,5 @@
 # Book Tesla Front End
-> Web-App built with React where your users can create bookings for a given car.
+> Web-App built with React where users can create bookings for a given car.
 
 ## About
 
