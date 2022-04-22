@@ -21,13 +21,12 @@ import { doLogin } from 'redux/Auth';
 
 const Login = () => {
   const dispatch = useDispatch();
-
   const [show, setShow] = React.useState(false);
   const handleClick = () => setShow(!show);
   return (
     <Center h="100vh" bg="#98bf11">
       <Stack
-        className="w-1/2"
+        className="w-1/2 md:w-10/12"
         boxShadow="md"
         bg="whiteAlpha.900"
         p="20"
@@ -41,7 +40,7 @@ const Login = () => {
             password: '',
           }}
           onSubmit={(data) => {
-            dispatch(doLogin());
+            dispatch(doLogin(data.email));
           }}
           validationSchema={loginSchema}
         >
@@ -69,7 +68,7 @@ const Login = () => {
                   component="div"
                 />
               </Box>
-              <Box className="py-4">
+              <Box className="py-4 hidden">
                 <Text
                   variant="p"
                   className="text-dark-gray font-medium text-md"

@@ -10,15 +10,16 @@ export const loginMethod = (payload) => ({
   payload,
 });
 
-const postLogin = async (data) => {
-  const response = await fetch(`${API_URL}/users/sign_in`);
-  return response;
+const postLogin = async (email) => {
+  const response = await fetch(`${API_URL}/users/sign_in?email=${email}`);
+  const data = await response.json();
+  return data;
 };
 
 export const doLogin = (obj) => async (dispatch) => {
   postLogin(obj).then((res) => {
-    if (res.status === 200) {
-      dispatch(loginMethod(true));
+    if (res.message === 'You are logged in.') {
+      dispatch(loginMethod(res.user_id));
     }
   });
 };
