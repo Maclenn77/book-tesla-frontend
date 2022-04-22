@@ -100,15 +100,6 @@ const Login = () => {
                   component="div"
                 />
               </Box>
-              <Box className="flex justify-between">
-                <Checkbox colorScheme="gray">Remeber Me</Checkbox>
-                <Text
-                  variant="p"
-                  className="text-dark-gray font-medium text-md"
-                >
-                  Forgot Password?
-                </Text>
-              </Box>
               <Box className="flex justify-between pt-12">
                 <Button justifyContent="center" variant="outline" type="submit">
                   Login

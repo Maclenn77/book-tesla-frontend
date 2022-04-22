@@ -20,6 +20,8 @@ export const doLogin = (obj) => async (dispatch) => {
   postLogin(obj).then((res) => {
     if (res.message === 'You are logged in.') {
       dispatch(loginMethod(res.user_id));
+      localStorage.setItem('user_id', res.user_id);
+      window.location.reload();
     }
   });
 };

@@ -52,7 +52,7 @@ function RentalCars() {
               </Text>
               <img className="w-44" src={item.image_link} alt={item.model} />
               <Text as="p">
-                Retal Date :
+                Rental Date :
                 {' '}
                 {item.created_at}
               </Text>

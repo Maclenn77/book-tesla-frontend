@@ -11,11 +11,11 @@ import { AddRental } from 'redux/rent';
 function RentCar() {
   const [model, setmodel] = useState();
   const [date, setdate] = useState('');
-  const [location, setlocation] = useState('');
+  const [location, setlocation] = useState('New York');
   const [loading, setloading] = useState(false);
 
   const Cars = useSelector((state) => state.CarsReducer);
-  const login = useSelector((state) => state.AuthReducer);
+  const login = localStorage.getItem('user_id');
 
   const dispatch = useDispatch();
 
@@ -51,8 +51,8 @@ function RentCar() {
               Rent A Tesla Car
             </Text>
             <Text className="py-4">
-              Please select the Check-in date and the Check-out date to reserve your
-              room.
+              Please select the Check-in date and the Check-out date to rent your
+              car.
             </Text>
             <Text className="font-semibold py-4">Rent date</Text>
             <DateRangePicker

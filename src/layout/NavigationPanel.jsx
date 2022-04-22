@@ -6,7 +6,7 @@ import { ViewMethod } from 'redux/view';
 function NavigationPanel() {
   const dispatch = useDispatch();
   const view = useSelector((state) => state.ViewReducer);
-  const login = useSelector((state) => state.AuthReducer);
+  const login = localStorage.getItem('user_id');
 
   const changeView = (view) => {
     dispatch(ViewMethod(view));
@@ -115,16 +115,16 @@ function NavigationPanel() {
           </ListItem>
         )}
         {login && (
-        <ListItem
-          onClick={() => {
-            window.location.reload();
-          }}
-          className="cursor-pointer text-red-500 select-none py-6 pl-6 text-3xl font-semibold"
-        >
-          LogOut
-        </ListItem>
+          <ListItem
+            onClick={() => {
+              localStorage.removeItem('user_id');
+              window.location.reload();
+            }}
+            className="cursor-pointer text-red-500 select-none py-6 pl-6 text-3xl font-semibold"
+          >
+            LogOut
+          </ListItem>
         )}
-
       </UnorderedList>
     </Box>
   );
