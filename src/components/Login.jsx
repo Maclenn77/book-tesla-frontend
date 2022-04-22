@@ -37,7 +37,7 @@ const Login = () => {
         <Formik
           initialValues={{
             email: '',
-            password: '',
+            password: '123',
           }}
           onSubmit={(data) => {
             dispatch(doLogin(data.email));
