@@ -50,6 +50,18 @@ function RentCar() {
             <Text className="font-semibold text-3xl py-4" as="h2">
               Rent A Tesla Car
             </Text>
+            <Text className="py-4">
+              Please select the Check-in date and the Check-out date to reserve your
+              room.
+            </Text>
+            <Text className="font-semibold py-4">Rent date</Text>
+            <DateRangePicker
+              appearance="subtle"
+              className="py-2"
+              placeholder="Select Date Range..."
+              format="dd/MM/yyyy HH:mm"
+              onChange={(e) => { setdate(e[0]); }}
+            />
             <Text className="py-4" as="p">
               In this section you can rent a car Please Select car type from the list
               below and choose the rental period.
@@ -70,17 +82,7 @@ function RentCar() {
               <option>Chicago</option>
               <option>Florida</option>
             </Select>
-            <Text className="py-4">
-              Please select the Check-in date and the Check-out date to reserve your
-              room.
-            </Text>
-            <Text className="font-semibold py-4">Rent date</Text>
-            <DateRangePicker
-              className="py-2"
-              placeholder="Select Date Range..."
-              format="dd/MM/yyyy HH:mm"
-              onChange={(e) => { setdate(e[0]); }}
-            />
+
             <Button isLoading={loading} onClick={() => { hundleSubmit(model, date, location, login); }} className="py-4" variant="solid">
               Rent Now
             </Button>
