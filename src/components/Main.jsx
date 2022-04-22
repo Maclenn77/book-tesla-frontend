@@ -13,7 +13,6 @@ import RentCar from './RentCar';
 export default function Main() {
   const login = localStorage.getItem('user_id');
   const view = useSelector((state) => state.ViewReducer);
-
   return (
     <>
       <Box className="flex md:flex-col">

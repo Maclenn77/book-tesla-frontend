@@ -7,7 +7,6 @@ function AddCar() {
   const [model, setmodel] = useState('');
   const [imgCar, setImgCar] = useState('');
   const [loading, setloading] = useState(false);
-
   const SubmitCar = async (model, imgCar) => {
     if (model !== '' && imgCar !== '') {
       const data = { model, imgCar };

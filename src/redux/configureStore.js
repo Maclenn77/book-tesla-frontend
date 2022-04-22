@@ -6,7 +6,6 @@ import RentalCars from './rent';
 import CarsReducer from './cars';
 
 const middlewares = [thunk];
-
 const reducer = combineReducers({
   AuthReducer,
   ViewReducer,

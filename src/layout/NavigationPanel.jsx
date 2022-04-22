@@ -7,7 +7,6 @@ function NavigationPanel() {
   const dispatch = useDispatch();
   const view = useSelector((state) => state.ViewReducer);
   const login = localStorage.getItem('user_id');
-
   const changeView = (view) => {
     dispatch(ViewMethod(view));
   };

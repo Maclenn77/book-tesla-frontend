@@ -9,7 +9,6 @@ import { getAllCars } from 'redux/cars';
 import { Link } from 'react-router-dom';
 
 SwiperCore.use([Navigation]);
-
 export default function Carousel() {
   const Cars = useSelector((state) => state.CarsReducer);
   const dispatch = useDispatch();

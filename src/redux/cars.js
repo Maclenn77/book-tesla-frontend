@@ -10,7 +10,6 @@ export const CarsMethod = (payload) => ({
   type: CARS,
   payload,
 });
-
 export const getCars = async () => {
   const Cars = await fetch(`${API_URL}/v1/cars`);
   const response = Cars.json();

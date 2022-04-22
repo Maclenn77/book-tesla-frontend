@@ -6,7 +6,6 @@ export const ViewMethod = (payload) => ({
   type: VIEW,
   payload,
 });
-
 const ViewReducer = (state = initialState, action) => {
   switch (action.type) {
     case VIEW:

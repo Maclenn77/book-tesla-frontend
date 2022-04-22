@@ -8,7 +8,6 @@ function RemoveCar() {
   const [loading, setloading] = useState(false);
 
   const dispatch = useDispatch();
-
   useEffect(() => {
     if (Cars.length === 0) {
       dispatch(getAllCars());

@@ -13,7 +13,6 @@ function RentalCars() {
   const [filterdCars, setfilterdCars] = useState([]);
 
   const selectCar = (id) => Cars.filter((item) => item.id === id);
-
   const fillCars = (id) => {
     let carsArr = [];
     carsArr = filterdCars;

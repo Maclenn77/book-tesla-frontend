@@ -8,7 +8,6 @@ export const RetalsCarsMethod = (payload) => ({
   type: RENTAL_CARS,
   payload,
 });
-
 export const getRetalCars = async () => {
   const Cars = await fetch(`${API_URL}/v1/bookings`);
   const response = Cars.json();

@@ -1,6 +1,6 @@
 import { Box, Text } from '@chakra-ui/react';
-import { BsFillArrowLeftCircleFill } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
+import { BsFillArrowLeftCircleFill } from 'react-icons/bs';
 
 export default function Car(props) {
   return (
