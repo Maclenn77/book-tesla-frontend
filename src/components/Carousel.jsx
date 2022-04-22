@@ -1,88 +1,83 @@
-/* eslint-disable max-len */
-import React from 'react';
-// import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai';
-// import Swipe from 'react-easy-swipe';
-import CarouselData from 'mock/CarouselData';
+/* eslint-disable array-callback-return */
+import { Badge, Box, Image } from '@chakra-ui/react';
+import React, { useEffect } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import SwiperCore, { Navigation } from 'swiper';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import { useSelector, useDispatch } from 'react-redux';
+import { getAllCars } from 'redux/cars';
+import { Link } from 'react-router-dom';
 
-const Carousel = () => {
-  // We will start by storing the index of the current image in the state.
-  const [currentImage, setCurrentImage] = React.useState(0);
-  // We are using react ref to 'tag' each of the images. Below will create an array of
-  // objects with numbered keys. We will use those numbers (i) later to access a ref of a
-  // specific image in this array.
-  const refs = CarouselData.reduce((acc, val, i) => {
-    acc[i] = React.createRef();
-    return acc;
-  }, {});
-  const scrollToImage = (i) => {
-    // First let's set the index of the image we want to see next
-    setCurrentImage(i);
-    // Now, this is where the magic happens. We 'tagged' each one of the images with a ref,
-    // we can then use built-in scrollIntoView API to do eaxactly what it says on the box - scroll it into
-    // your current view! To do so we pass an index of the image, which is then use to identify our current
-    // image's ref in 'refs' array above.
-    refs[i].current.scrollIntoView({
-      //     Defines the transition animation.
-      behavior: 'smooth',
-      //      Defines vertical alignment.
-      block: 'nearest',
-      //      Defines horizontal alignment.
-      inline: 'start',
-    });
-  };
-  // Some validation for checking the array length could be added if needed
-  const totalImages = CarouselData.length;
-  // Below functions will assure that after last image we'll scroll back to the start,
-  // or another way round - first to last in previousImage method.
-  const nextImage = () => {
-    if (currentImage >= totalImages - 1) {
-      scrollToImage(0);
-    } else {
-      scrollToImage(currentImage + 1);
-    }
-  };
-  const previousImage = () => {
-    if (currentImage === 0) {
-      scrollToImage(totalImages - 1);
-    } else {
-      scrollToImage(currentImage - 1);
-    }
-  };
-  const arrowStyle = 'absolute text-white text-2xl z-10 bg-black h-10 w-10 rounded-full opacity-75 flex items-center justify-center';
-  // Let's create dynamic buttons. It can be either left or right. Using
-  // isLeft boolean we can determine which side we'll be rendering our button
-  // as well as change its position and content.
-  const sliderControl = (isLeft) => (
-    <button
-      type="button"
-      onClick={isLeft ? previousImage : nextImage}
-      className={`${arrowStyle} ${isLeft ? 'left-2' : 'right-2'}`}
-      style={{ top: '40%' }}
-    >
-      <span role="img" aria-label={`Arrow ${isLeft ? 'left' : 'right'}`}>
-        {isLeft ? '◀' : '▶'}
-      </span>
-    </button>
-  );
+SwiperCore.use([Navigation]);
+
+export default function Carousel() {
+  const Cars = useSelector((state) => state.CarsReducer);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getAllCars());
+  }, []);
+
   return (
-    // Images are placed using inline flex. We then wrap an image in a div
-    // with flex-shrink-0 to stop it from 'shrinking' to fit the outer div.
-    // Finally the image itself will be 100% of a parent div. Outer div is
-    // set with position relative, so we can place our cotrol buttons using
-    // absolute positioning on each side of the image.
-    <div className="p-12 flex justify-center w-screen md:w-1/2 items-center">
-      <div className="relative w-full">
-        <div className="carousel">
-          {sliderControl(true)}
-          {CarouselData.map((img, i) => (
-            <div className="w-full flex-shrink-0" key={img} ref={refs[i]}>
-              <img src={img} className="w-full object-contain" alt="" />
-            </div>
-          ))}
-          {sliderControl()}
-        </div>
-      </div>
-    </div>
+    <>
+      <Swiper
+        navigation
+        className="mySwiper mt-24"
+        slidesPerView="2"
+      >
+        {Cars?.map((item) => (
+          <SwiperSlide key={item.id}>
+            <Link to={`../${item.id}`}>
+              <Box maxW="sm" borderWidth="1px" borderRadius="lg" overflow="hidden">
+                <Image src={item.image_link} alt={item.imageAlt} />
+                <Box p="6">
+                  <Box display="flex" alignItems="baseline">
+                    <Badge borderRadius="full" px="2" colorScheme="teal">
+                      New
+                    </Badge>
+                    <Box
+                      color="gray.500"
+                      fontWeight="semibold"
+                      letterSpacing="wide"
+                      fontSize="xs"
+                      textTransform="uppercase"
+                      ml="2"
+                    >
+                      76cu ft
+                      {' '}
+                      Cargo Space
+                      &bull;
+                      {' '}
+                      330 mi
+                      {' '}
+                      Speed
+                    </Box>
+                  </Box>
+                  <Box
+                    mt="1"
+                    fontWeight="semibold"
+                    as="h4"
+                    lineHeight="tight"
+                    isTruncated
+                  >
+                    {item.model}
+                  </Box>
+
+                  <Box>
+                    $41,940.00
+                    <Box as="span" color="gray.600" fontSize="sm">
+                      / wk
+                    </Box>
+                  </Box>
+                </Box>
+              </Box>
+            </Link>
+          </SwiperSlide>
+        ))}
+
+      </Swiper>
+
+    </>
   );
-};
-export default Carousel;
+}
