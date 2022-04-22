@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 /* eslint-disable consistent-return */
 import { Box, ListItem, UnorderedList } from '@chakra-ui/react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -131,3 +133,4 @@ function NavigationPanel() {
 }
 
 export default NavigationPanel;
+>>>>>>> UI-Fixes

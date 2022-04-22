@@ -10,9 +10,7 @@ module.exports = {
       xs: { max: '400px' },
     },
     extend: {
-      colors: {
-        'dark-green': '#98bf11',
-      },
+      colors: {},
     },
   },
   plugins: [],
