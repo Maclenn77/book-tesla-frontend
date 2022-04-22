@@ -2,7 +2,6 @@ import {
   Box,
   Button,
   Center,
-  Checkbox,
   Heading,
   Image,
   Input,

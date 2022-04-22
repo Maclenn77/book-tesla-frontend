@@ -1,4 +1,3 @@
-/* eslint-disable array-callback-return */
 import { Badge, Box, Image } from '@chakra-ui/react';
 import React, { useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';

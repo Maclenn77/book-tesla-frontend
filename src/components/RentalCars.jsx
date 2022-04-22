@@ -1,5 +1,5 @@
 import {
-  Box, LinkBox, ListItem, Text, UnorderedList,
+  Box, Text,
 } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
