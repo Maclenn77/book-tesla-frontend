@@ -1,6 +1,4 @@
-import {
-  Box, LinkBox, ListItem, Text, UnorderedList,
-} from '@chakra-ui/react';
+import { Box, Text } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getRentals } from 'redux/rent';
@@ -40,11 +38,16 @@ function RentalCars() {
 
   return (
     <Box className="pl-4 ">
-      <Text className="font-semibold text-3xl md:text-center">Current Cars</Text>
+      <Text className="font-semibold text-3xl md:text-center">
+        Current Cars
+      </Text>
       <Box className="flex gap-3">
         <Box className="flex flex-wrap md:justify-center">
           {filterdCars?.map((item) => (
-            <Box className="py-4 border p-4 flex flex-col p-4 items-center justify-center" key={item.id}>
+            <Box
+              className="py-4 border p-4 flex flex-col p-4 items-center justify-center"
+              key={item.id}
+            >
               <Text as="p">
                 Model :
                 {' '}
@@ -56,11 +59,9 @@ function RentalCars() {
                 {' '}
                 {item.created_at}
               </Text>
-
             </Box>
           ))}
         </Box>
-
       </Box>
     </Box>
   );
