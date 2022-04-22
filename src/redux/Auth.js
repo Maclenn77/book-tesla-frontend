@@ -9,7 +9,6 @@ export const loginMethod = (payload) => ({
   type: LOGIN,
   payload,
 });
-
 const postLogin = async (email) => {
   const response = await fetch(`${API_URL}/users/sign_in?email=${email}`);
   const data = await response.json();

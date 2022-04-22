@@ -1,4 +1,3 @@
-/* eslint-disable consistent-return */
 import {
   Box,
   Drawer,

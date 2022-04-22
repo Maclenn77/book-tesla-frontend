@@ -13,7 +13,6 @@ function RentCar() {
   const [date, setdate] = useState('');
   const [location, setlocation] = useState('New York');
   const [loading, setloading] = useState(false);
-
   const Cars = useSelector((state) => state.CarsReducer);
   const login = localStorage.getItem('user_id');
 
